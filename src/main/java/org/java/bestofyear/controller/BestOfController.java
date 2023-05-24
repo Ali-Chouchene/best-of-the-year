@@ -26,6 +26,9 @@ public class BestOfController {
 		List<Movie> movies = new ArrayList<>();
 		movies.add(new Movie("1", " Principe cerca moglie"));
 		movies.add(new Movie("2", "Batman"));
+		movies.add(new Movie("3", "Spiderman"));
+		movies.add(new Movie("4", "Il signore degli anelli"));
+		movies.add(new Movie("5", "Star wars"));
 		return movies;
 	}
 
@@ -33,6 +36,9 @@ public class BestOfController {
 		List<Song> songs = new ArrayList<>();
 		songs.add(new Song("1", "Save your tears"));
 		songs.add(new Song("2", "In the end"));
+		songs.add(new Song("3", "Titi me pregunto"));
+		songs.add(new Song("4", "Dakiti"));
+		songs.add(new Song("5", "Too many nights"));
 		return songs;
 	}
 
@@ -70,15 +76,31 @@ public class BestOfController {
 	}
 
 	@GetMapping("songs/{id}")
-	public String songsId(Model model, @PathVariable("id") String id) {
-		String titolo = "";
+	public String songsId(Model model, @PathVariable("id") int id) {
+		String idS = Integer.toString(id);
 
+		String title = "";
 		for (Song val : getBestSongs()) {
-			if (val.getId() == id) {
-				titolo += val.getTitolo();
+			if (val.getId().equals(idS)) {
+				title += val.getTitolo();
 			}
 		}
-		model.addAttribute("titolo", titolo);
+		model.addAttribute("title", title);
+		return "single";
+
+	}
+
+	@GetMapping("movies/{id}")
+	public String moviesId(Model model, @PathVariable("id") int id) {
+		String idS = Integer.toString(id);
+
+		String title = "";
+		for (Movie val : getBestMovies()) {
+			if (val.getId().equals(idS)) {
+				title += val.getTitolo();
+			}
+		}
+		model.addAttribute("title", title);
 		return "single";
 
 	}
