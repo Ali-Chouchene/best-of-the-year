@@ -13,11 +13,11 @@
         <div class="mx-auto border border-secondary" style="min-height: 85vh;width: 60%;">
             <div class="d-flex nav-bar">
                 <div class="border border-secondary w-25">
-                    <h5 class="py-3 px-2">Best of </h5>
+                    <h5 class="py-3 px-2">Best of</h5>
                 </div>
                 <div class="border border-secondary w-75 d-flex align-items-center px-2 gap-4">
                  <a class="border border-secondary rounded py-1 px-4" th:href="@{/}"
-                        style="text-decoration: none;text-decoration: none;color: black;margin: 0;cursor: pointer;background-color: rgba(0, 255, 21, 0.459);">
+                        style="text-decoration: none;text-decoration: none;color: black;margin: 0;cursor: pointer;">
                         <h5>Home</h5>
                     </a>
                     <a class="border border-secondary rounded py-1 px-4" th:href="@{movies}"
@@ -25,18 +25,22 @@
                         <h5>Movies</h5>
                     </a>
                     <a class="border border-secondary rounded py-1 px-4" th:href="@{songs}"
-                        style="text-decoration: none;text-decoration: none;color: black;margin: 0;cursor: pointer;">
+                        style="text-decoration: none;text-decoration: none;color: black;margin: 0;cursor: pointer;background-color: rgba(0, 255, 21, 0.459);">
                         <h5>Songs</h5>
                     </a>
                 </div>
             </div>
             <div class="main">
-                <h2 class="mt-4 text-center">Best of by Ali</h2>
-                <div class="d-none main-content d-flex flex-column align-items-center">
-                    <img class="mt-4 " height="300px" width="600px" src="https://wallpapercave.com/wp/wp7250087.jpg" />
-                    <h4 class="border border-secondary pt-5" style="width: 600px;text-align: center;height: 150px;">
-                       all</h4>
+                <div
+                    class="main-content d-flex gap-3 flex-column justify-content-center align-items-center mt-5">
+                    
+                     <a  th:each="song : ${songs}" th:object="${song}" th:href="@{/songs/{id} (id=${song.id})}" class="border border-secondary rounded py-1 px-4" 
+                style="text-decoration: none;text-decoration: none;color: black;margin: 0;cursor: pointer;">
+               <h5>[[ *{titolo} ]]</h5>
+            </a>
+                
                 </div>
+       
             </div>
         </div>
     </div>

@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-	<h1 th:text="'Title: ' + ${title}"></h1>
+                   <div class="container mt-5 pt-5">
+        <div class="mx-auto border border-secondary" style="min-height: 85vh;width: 60%;">
+            <div class="d-flex nav-bar">
+                <div class="border border-secondary w-25">
+                    <h5 class="py-3 px-2">Best of</h5>
+                </div>
+                <div class="border border-secondary w-75 d-flex align-items-center px-2 gap-4">
+                 <a class="border border-secondary rounded py-1 px-4" th:href="@{/}"
+                        style="text-decoration: none;text-decoration: none;color: black;margin: 0;cursor: pointer;">
+                        <h5>Home</h5>
+                    </a>
+                    <a class="border border-secondary rounded py-1 px-4" th:href="@{/movies}"
+                        style="text-decoration: none;text-decoration: none;color: black;margin: 0;cursor: pointer;">
+                        <h5>Movies</h5>
+                    </a>
+                    <a class="border border-secondary rounded py-1 px-4" th:href="@{/songs}"
+                        style="text-decoration: none;text-decoration: none;color: black;margin: 0;cursor: pointer;">
+                        <h5>Songs</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="main">
+               <div class="main-content d-flex flex-column align-items-center">
+                    <img class="mt-4 img-fluid" height="300px" width="600px" th:src="${val.img}"/>
+                    <h4 th:text="'Title: ' + ${val.titolo}" class="border border-secondary pt-5" style="width: 600px;text-align: center;height: 150px;"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
